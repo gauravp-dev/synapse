@@ -3,9 +3,9 @@ import { redirect } from "next/navigation";
 import { Channeltype } from "@prisma/client";
 
 import { currentProfile } from "@/lib/current-profile";
-// import { ChatHeader } from "@/components/chat/chat-header";
-// import { ChatInput } from "@/components/chat/chat-input";
-// import { ChatMessages } from "@/components/chat/chat-messages";
+import { ChatHeader } from "@/components/chat/chat-header";
+import { ChatInput } from "@/components/chat/chat-input";
+import { ChatMessages } from "@/components/chat/chat-messages";
 // import { MediaRoom } from "@/components/media-room";
 import { db } from "@/lib/db";
 
@@ -42,13 +42,12 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
 
   return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-      Channel : {channel.name}
-      {/* <ChatHeader
+      <ChatHeader
         name={channel.name}
         serverId={channel.serverId}
         type="channel"
       />
-      {channel.type === ChannelType.TEXT && (
+      {channel.type === Channeltype.TEXT && (
         <>
           <ChatMessages
             member={member}
@@ -75,14 +74,14 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
           />
         </>
       )}
-      {channel.type === ChannelType.AUDIO && (
+      {/* {channel.type === ChannelType.AUDIO && (
         <MediaRoom
           chatId={channel.id}
           video={false}
           audio={true}
         />
-      )}
-      {channel.type === ChannelType.VIDEO && (
+      )} */}
+      {/* {channel.type === ChannelType.VIDEO && (
         <MediaRoom
           chatId={channel.id}
           video={true}
